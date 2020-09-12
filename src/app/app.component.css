@@ -1,0 +1,117 @@
+
+.mat-toolbar
+{
+background-color: darkcyan;
+height: 80px;
+}
+
+.div1
+{
+background-color:white;
+height: 30em;
+width: 25em;
+border-radius: 10px;
+border-style: solid;
+border-color: darkcyan;
+margin-inline-start: 5em;
+margin-top: 7em;
+float: left;
+
+}
+
+
+
+h2
+{
+    margin-inline-start: 6em;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.mat-form-field1
+{
+    margin-inline-start: 7em;
+    outline-color: darkcyan;
+
+    
+}
+
+.mat-raised-button1
+{
+    margin-inline-start: 9.5em;
+
+    background-color: darkcyan;
+    height:40px;
+    width: 10em;
+    color: white;
+}
+
+.div2
+{
+background-color:white;
+height: 30em;
+width: 25em;
+border-radius: 10px;
+border-style: solid;
+border-color: darkcyan;
+margin-inline-start: 2em;
+margin-top: 7em;
+float: left;
+
+max-height: 30em;
+overflow-y: scroll;
+
+}   
+
+.addlabel2
+{
+    margin-inline-start: 1em;
+    padding: 1px;
+    color: red;
+    border-radius: 20px;
+    font-weight: bold;
+   
+}
+.removelabel2
+{    
+    padding: 1px;
+    color: red;
+    border-radius: 20px;
+    font-weight: bold;
+    
+}
+
+.addlabel2:hover,.removelabel2:hover
+{
+    background-color: whitesmoke;
+}
+
+.input2
+{
+    margin-inline-start: 5em;
+    float: left;
+    width: 13em;
+    height: 30px;
+    border-style: solid;
+    border-width: 0.5px;
+    text-align: center;
+    
+}
+
+.div3
+{
+background-color:white;
+height: 30em;
+width: 25em;
+border-radius: 10px;
+border-style: solid;
+border-color: darkcyan;
+margin-inline-start: 2em;
+margin-top: 7em;
+float: left;
+
+max-height: 30em;
+overflow-y: scroll;
+
+} 
