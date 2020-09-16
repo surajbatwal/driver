@@ -1,7 +1,7 @@
 
 .mat-toolbar
 {
-background-color: darkcyan;
+background-color: blue;
 height: 80px;
 }
 
@@ -31,7 +31,7 @@ h2
 
 .mat-form-field1
 {
-    margin-inline-start: 7em;
+    margin-inline-start: 5em;
     outline-color: darkcyan;
 
     
@@ -39,9 +39,9 @@ h2
 
 .mat-raised-button1
 {
-    margin-inline-start: 9.5em;
+    margin-inline-start: 7em;
 
-    background-color: darkcyan;
+    background-color: blue;
     height:40px;
     width: 10em;
     color: white;
@@ -64,38 +64,21 @@ overflow-y: scroll;
 
 }   
 
-.addlabel2
+
+
+
+
+.inputwait
 {
-    margin-inline-start: 1em;
-    padding: 1px;
-    color: red;
-    border-radius: 20px;
-    font-weight: bold;
-   
-}
-.removelabel2
-{    
-    padding: 1px;
-    color: red;
-    border-radius: 20px;
-    font-weight: bold;
     
-}
-
-.addlabel2:hover,.removelabel2:hover
-{
-    background-color: whitesmoke;
-}
-
-.input2
-{
-    margin-inline-start: 5em;
     float: left;
-    width: 13em;
+    width: 8em;
     height: 30px;
     border-style: solid;
-    border-width: 0.5px;
-    text-align: center;
+    border-width: 1px;
+    text-align: left;
+    margin-inline-start: 1em;
+    border-radius: 5px;
     
 }
 
@@ -115,3 +98,161 @@ max-height: 30em;
 overflow-y: scroll;
 
 } 
+
+.timestamp
+{
+
+    float: left;
+    width: 12em;
+    margin-inline-start: 1em;
+    border-radius: 5px;
+    height: 30px;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+
+}
+
+.inputselected
+{
+    
+    width: 15em;
+    height: 30px;
+    border-style: solid;
+    border-width: 1px;
+    text-align: left;
+    margin-inline-start: 1em;
+    border-radius: 5px;
+}
+
+
+
+/*<<<---Mobile view--->>>>
+
+////////////////////////////////////////////
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+///////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+*/
+@media only screen and (max-width: 500px) 
+{
+
+    .mat-toolbar
+    {
+    
+        background-color:blue;
+        height: 80px;
+    }
+
+
+    .div1
+    {
+        background-color:white;
+        height: 30em;
+        width: 20em;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: blue;
+        margin-inline-start: 1em;
+        margin-top: 5em;
+        float: left;
+
+        max-height: 30em;
+        overflow-y: scroll;
+
+    }
+
+    .mat-toolbar h2
+    {
+        margin-inline-start: 5em;
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .mat-form-field1
+    {
+        margin-inline-start: 3.5em;
+        outline-color: blue;  
+        width: 12em; 
+    }
+
+    .mat-raised-button1
+    {
+        margin-inline-start: 5em;
+    
+        background-color: blue;
+        height:40px;
+        width: 9em;
+        color: white;
+    }
+
+    .div2
+    {
+        background-color:white;
+        height: 30em;
+        width: 20em;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: blue;
+        margin-inline-start: 1em;
+        margin-top: 7em;
+        float: left;
+    
+        max-height: 30em;
+        overflow-y: scroll;
+    
+    } 
+
+    .inputwait
+    {
+        
+        width: 7em;
+        margin-inline-start: 1em;
+        border-radius: 5px;
+        height: 30px;
+        border-style: solid;
+        border-width: 1px;
+        font-size: 12px;
+        text-align: left;
+        
+    }
+
+    .timestamp
+    {
+    
+        
+        width: 12em;
+        margin-inline-start: 1em;
+        border-radius: 5px;
+        height: 30px;
+        border-style: solid;
+        border-width: 1px;
+        text-align: left;
+        font-size: 11px;
+    
+    }
+
+    .div3
+    {
+        background-color:white;
+        height: 30em;
+        width: 20em;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: darkcyan;
+        margin-inline-start: 1em;
+        margin-top: 7em;
+        float: left;
+    
+        max-height: 30em;
+        overflow-y: scroll;
+    
+    }
+
+
+}

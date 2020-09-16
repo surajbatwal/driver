@@ -3,6 +3,7 @@ import { FireService } from './fire.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from './user.model';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,23 +20,28 @@ constructor(private fireService:FireService,
             private Fire:AngularFirestore,
             private _snackBar:MatSnackBar){}
 
-
+      
             ngOnInit()
                {
                 this.getfiredata();
                 this.getselectedfiredata();
-              
+                
               }
 Category="";
 sample;
 errorflag=false;
+today;
+
+
 
    fireadd()
     {
-      console.log(this.Category)
+      this.today=Date();
+      
       this.sample={
 
-                "firstname":this.Category
+                "firstname":this.Category,
+                "timestamp":this.today
                 
                   }
       //Function to add data to fire store
@@ -50,10 +56,13 @@ errorflag=false;
       this.Fire.collection('User').add(this.sample);
       this.errorflag=false;
       
+      this.playAudio();
       this.openSnackBarsuccess();
       }
       this.Category="";  
+      
     }
+
 //function ends
 
 
@@ -62,6 +71,7 @@ errorflag=false;
 durationInSeconds = 2;
 openSnackBarsuccess() 
 {
+  
   this._snackBar.open("Added Successfully!!", "", 
   {
     duration: this.durationInSeconds * 1000,
@@ -77,10 +87,14 @@ openSnackBarsuccess()
 
 //getting record from firebase function
 list:User[];
-
+i;
+j;
+temp:User;
 
 getfiredata()
 {
+  
+
 this.fireService.getfiredata().subscribe(actionArray =>{
   this.list=actionArray.map(item=>{
     return{
@@ -89,8 +103,27 @@ this.fireService.getfiredata().subscribe(actionArray =>{
     }
     
   });
-  
-  console.log(this.list[0]);
+
+  //console.log(this.list);
+ 
+
+  //sorting list
+
+  for(this.i=0;this.i<this.list.length;this.i++)
+  {
+    for(this.j=this.i+1;this.j<this.list.length;this.j++)
+    {
+      if(this.list[this.i].timestamp > this.list[this.j].timestamp)
+      {
+       // this.temp=this.list[this.i];
+        this.temp=this.list[this.i];
+        this.list[this.i]=this.list[this.j];
+        this.list[this.j]=this.temp;
+      }
+    }
+  }
+//console.log(this.list);
+
 
 })
 
@@ -110,11 +143,25 @@ this.fireService.getsfiredata().subscribe(actionArray =>{
     
   });
   
-  console.log(this.selected[0]);
+  
 
 })
 
 }
+
+
+//alerts sound function
+
+
+playAudio(){
+  let audio = new Audio();
+  audio.src = "./assets/audio3.mp3";
+  audio.load();
+  audio.play();
+  this.openSnackBarsuccess();
+}
+
+
 
 
 }

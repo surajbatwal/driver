@@ -16,7 +16,7 @@
     </mat-select>
   </mat-form-field>
   <br>
-  <small style="color: red;margin-inline-start: 9em;" *ngIf="errorflag">Please select option </small>
+  <small style="color: red;margin-inline-start: 7em;" *ngIf="errorflag">Please select option </small>
   
 
 <br>
@@ -24,7 +24,7 @@
   <button mat-raised-button  class="mat-raised-button1" type="submit" (click)="fireadd()">Add</button>
   <br>
   <br>
-  <button mat-raised-button class="mat-raised-button1" type="submit">Next</button>
+  
 
 </div>
 
@@ -38,10 +38,11 @@
   <br>
   <br>
 <div *ngFor="let value of list;let i = index;">
-  <input matInput class="input2" placeholder="{{value.firstname}}" disabled>
-  
+  <input matInput class="inputwait" placeholder="&nbsp;{{i+1}}. &nbsp;{{value.firstname}}" disabled>
+  <input matInput class="timestamp" placeholder="&nbsp;{{value.timestamp |date:'h:mm a ' }} {{value.timestamp |date }} &nbsp;" disabled>
   <br>
   <br>
+  <hr>
 </div>
 
 </div>
@@ -55,9 +56,12 @@
   <br>
   <div *ngFor="let value of selected; let i = index; ">
     
-    <input class="input2" matInput  placeholder="{{i+1}} &nbsp;&nbsp;{{value.firstname}}">
-    
+    <input matInput class="inputwait" placeholder="&nbsp;{{i+1}}. &nbsp;{{value.firstname}}" disabled>
+  <input matInput class="timestamp" placeholder="&nbsp;{{value.timestamp |date:'h:mm a ' }} {{value.timestamp |date }} &nbsp;" disabled>
   
+  <br>
+  <br>
+  <hr>
   </div>
 
   <br>
