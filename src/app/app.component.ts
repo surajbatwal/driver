@@ -4,6 +4,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from './user.model';
 import { getLocaleDateFormat } from '@angular/common';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -18,14 +20,20 @@ export class AppComponent {
   
 constructor(private fireService:FireService,
             private Fire:AngularFirestore,
-            private _snackBar:MatSnackBar){}
+            private _snackBar:MatSnackBar,
+            public dialog: MatDialog){}
 
       
             ngOnInit()
                {
+                this.openDialog();
                 this.getfiredata();
                 this.getselectedfiredata();
                 
+              }
+
+              openDialog() {
+                this.dialog.open(DialogComponent);
               }
 Category="";
 sample;
@@ -56,8 +64,7 @@ today;
       this.Fire.collection('User').add(this.sample);
       this.errorflag=false;
       
-      this.playAudio();
-      this.openSnackBarsuccess();
+      
       }
       this.Category="";  
       
@@ -69,10 +76,10 @@ today;
      //snacknbar function for success
 
 durationInSeconds = 2;
-openSnackBarsuccess() 
+openSnackBarsuccess(message) 
 {
   
-  this._snackBar.open("Added Successfully!!", "", 
+  this._snackBar.open(message, "", 
   {
     duration: this.durationInSeconds * 1000,
     panelClass: ['success-snackbar']
@@ -129,9 +136,9 @@ this.fireService.getfiredata().subscribe(actionArray =>{
 
 }
 //function ends here
-
+slength=0;
 selected:User[];
-
+added;
 getselectedfiredata()
 {
 this.fireService.getsfiredata().subscribe(actionArray =>{
@@ -142,11 +149,26 @@ this.fireService.getsfiredata().subscribe(actionArray =>{
     }
     
   });
-  
-  
+  console.log(this.selected.length);
+  console.log(this.slength);
 
+
+  //for added user
+  if(this.selected.length > this.slength )
+  {
+    this.slength++;
+    this.playAudio();
+    
+    this.added=this.selected[this.slength-1];
+    //this.openSnackBarsuccess(this.selected[this.slength-1].firstname+"  Selected");
+    //alert("new user added:"+ this.added);
+  }
+
+ 
 })
 
+  
+  
 }
 
 
@@ -158,7 +180,8 @@ playAudio(){
   audio.src = "./assets/audio3.mp3";
   audio.load();
   audio.play();
-  this.openSnackBarsuccess();
+  
+  
 }
 
 
