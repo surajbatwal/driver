@@ -4,5 +4,5 @@ export class User{
     
     firstname:string;
     timestamp:Date;
-    
+    material:string;
 }

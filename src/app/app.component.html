@@ -56,9 +56,11 @@
   <br>
   <div *ngFor="let value of selected; let i = index; ">
     
-    <input matInput class="inputwait" placeholder="&nbsp;{{i+1}}. &nbsp;{{value.firstname}}" disabled>
+  <input matInput class="inputwait" placeholder="&nbsp;{{i+1}}. &nbsp;{{value.firstname}}" disabled>
   <input matInput class="timestamp" placeholder="&nbsp;{{value.timestamp |date:'h:mm a ' }} {{value.timestamp |date }} &nbsp;" disabled>
-  
+  <br>
+  <br>
+  <input matInput class="inputmaterial" placeholder="&nbsp;{{value.material}}" disabled>
   <br>
   <br>
   <hr>

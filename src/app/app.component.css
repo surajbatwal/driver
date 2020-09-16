@@ -125,6 +125,19 @@ overflow-y: scroll;
     border-radius: 5px;
 }
 
+.inputmaterial
+    {
+        margin-inline-start: 2em;
+        width: 10em;
+        margin-inline-start: 1em;
+        border-radius: 5px;
+        height: 30px;
+        border-style: solid;
+        border-width: 1px;
+        font-size: 12px;
+        text-align: center;
+    }
+
 
 
 /*<<<---Mobile view--->>>>
@@ -220,6 +233,19 @@ overflow-y: scroll;
         font-size: 12px;
         text-align: left;
         
+    }
+
+    .inputmaterial
+    {
+        margin-inline-start: 1em;
+        width: 10em;
+        margin-inline-start: 1em;
+        border-radius: 5px;
+        height: 30px;
+        border-style: solid;
+        border-width: 1px;
+        font-size: 12px;
+        text-align: center;
     }
 
     .timestamp
