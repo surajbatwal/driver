@@ -56,6 +56,7 @@ getErrorMessage() {
 
 Category="";
 mobileno="";
+emailid="";
 sample;
 errorflag=false;
 mobflag=false;
@@ -72,7 +73,8 @@ today;
 
                 "firstname":this.Category,
                 "timestamp":this.today,
-                "mobileno":"+91"+this.mobileno 
+                "mobileno":"+91"+this.mobileno,
+                "emailid":this.emailid 
                 
                   }
       //Function to add data to fire store
@@ -80,20 +82,22 @@ today;
       if(this.Category==""  )
       {
         this.errorflag=true;
+        this.mobflag=false;
+        this.mobflaglength=false;
 
       }
       else if(this.mobileno == "")
       {
         this.mobflag=true;
         this.mobflaglength=false;
-
-        console.log(this.mobflag);
-        console.log("in mob");
+        this.errorflag=false;
+        
       }
       else if(this.mobileno.length >0 && this.mobileno.length <10 )
       {
         this.mobflaglength=true;
-      this.mobflag=false;
+        this.mobflag=false;
+        this.errorflag=false;
           
       }
       else

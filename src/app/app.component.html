@@ -5,7 +5,7 @@
   
 
   <br>
-  <br>
+  
   
   <mat-form-field class="mat-form-field1" appearance="outline">
     <mat-label>Driver List</mat-label>
@@ -17,13 +17,16 @@
   </mat-form-field>
   <br>
   <small style="color: red;margin-inline-start: 7em;" *ngIf="errorflag">Please select option </small>
-  <br>
+  
   <mat-form-field class="mat-form-field1" appearance="outline">
     <input matInput  placeholder="Mobile no:" [(ngModel)]="mobileno" [formControl]="Mobno" >
   </mat-form-field>
   <small style="color: red;margin-inline-start: 7em;" *ngIf="mobflag">You Must Enter Value </small>
   <small style="color: red;margin-inline-start: 7em;" *ngIf="mobflaglength">Enter Value Valid Mobile No. </small>
-
+  
+  <mat-form-field class="mat-form-field1" appearance="outline">
+    <input matInput  placeholder="Email-id &nbsp;(Optional)" [(ngModel)]="emailid"  >
+  </mat-form-field>
 <br>
 <br>
   <button mat-raised-button  class="mat-raised-button1" type="submit" (click)="fireadd()">Add</button>

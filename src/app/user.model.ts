@@ -6,4 +6,5 @@ export class User{
     timestamp:Date;
     material:string;
     mobileno:string;
+    emailid:string;
 }
