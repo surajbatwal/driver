@@ -6,6 +6,7 @@ import { User } from './user.model';
 import { getLocaleDateFormat } from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -35,9 +36,30 @@ constructor(private fireService:FireService,
               openDialog() {
                 this.dialog.open(DialogComponent);
               }
+
+//form conttrols
+
+//Drivername = new FormControl('', [Validators.required]);
+Mobno = new FormControl('', [Validators.minLength(10),Validators.maxLength(10)]);
+
+
+
+
+getErrorMessage() {
+  if (this.Mobno.hasError('required')) {
+    return 'You must enter a value';
+  }
+
+}
+
+
+
 Category="";
+mobileno="";
 sample;
 errorflag=false;
+mobflag=false;
+mobflaglength=false;
 today;
 
 
@@ -49,24 +71,50 @@ today;
       this.sample={
 
                 "firstname":this.Category,
-                "timestamp":this.today
+                "timestamp":this.today,
+                "mobileno":"+91"+this.mobileno 
                 
                   }
       //Function to add data to fire store
               
-      if(this.Category=="")
+      if(this.Category==""  )
       {
         this.errorflag=true;
 
       }
+      else if(this.mobileno == "")
+      {
+        this.mobflag=true;
+        this.mobflaglength=false;
+
+        console.log(this.mobflag);
+        console.log("in mob");
+      }
+      else if(this.mobileno.length >0 && this.mobileno.length <10 )
+      {
+        this.mobflaglength=true;
+      this.mobflag=false;
+          
+      }
       else
       {
+        
+        
+        //call the add function
       this.Fire.collection('User').add(this.sample);
+
+      console.log(this.sample);
+
+      //disable all error flags
       this.errorflag=false;
-      
-      
+      this.mobflag=false;
+      this.mobflaglength=false;
+
+      //reset all fields.
+      this.Category="";
+      this.mobileno="";
       }
-      this.Category="";  
+        
       
     }
 
