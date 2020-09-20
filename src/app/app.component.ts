@@ -64,7 +64,7 @@ mobflaglength=false;
 today;
 
 
-
+//adding user on firebase
    fireadd()
     {
       this.today=Date();
@@ -125,7 +125,7 @@ today;
 //function ends
 
 
-     //snacknbar function for success
+//snacknbar function for success/popup notification
 
 durationInSeconds = 2;
 openSnackBarsuccess(message) 
@@ -144,7 +144,7 @@ openSnackBarsuccess(message)
 
 
 
-//getting record from firebase function
+//getting waiting list  record from firebase function
 list:User[];
 i;
 j;
@@ -166,7 +166,7 @@ this.fireService.getfiredata().subscribe(actionArray =>{
   //console.log(this.list);
  
 
-  //sorting list
+  //sorting function for waiting list
 
   for(this.i=0;this.i<this.list.length;this.i++)
   {
@@ -188,6 +188,11 @@ this.fireService.getfiredata().subscribe(actionArray =>{
 
 }
 //function ends here
+
+
+
+//getting selectrd list  record from firebase function
+
 slength=0;
 selected:User[];
 added;
@@ -208,7 +213,7 @@ this.fireService.getsfiredata().subscribe(actionArray =>{
   //for added user
   if(this.selected.length > this.slength )
   {
-    this.slength++;
+    this.slength=this.selected.length;
     this.playAudio();
     
     this.added=this.selected[this.slength-1];
@@ -228,10 +233,18 @@ this.fireService.getsfiredata().subscribe(actionArray =>{
 
 
 playAudio(){
-  let audio = new Audio();
-  audio.src = "./assets/audio3.mp3";
-  audio.load();
-  audio.play();
+  let audio1= new Audio();
+  let audio2 = new Audio();
+  
+  //sound
+  audio1.src = "./assets/tweet.mp3";
+  audio1.load();
+  audio1.play();
+
+  //vibration
+  audio2.src = "./assets/vibration2.mp3";
+  audio2.load();
+  audio2.play();
   
   
 }
