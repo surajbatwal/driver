@@ -16,7 +16,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'driver';
 
-  topics=['Raul','Juan','Bulmaro','Jesus','Jimmy','Ray','Valente','Freibel 1','Freibel 2','Alco'];
+  topics=['Raul','Juan','Bulmaro','Jesus','Jimmy','Ray','Valente','Freibel 1','Freibel 2','Alco','Guest'];
   
   
 constructor(private fireService:FireService,
@@ -67,9 +67,25 @@ today;
 //adding user on firebase
    fireadd()
     {
-      this.today=Date();
       
-      this.sample={
+      this.today=Date();
+     
+      if(this.Category == "Guest")
+      {
+      
+        this.sample={
+
+          "firstname":this.mobileno,
+          "timestamp":this.today,
+          "mobileno":"+1"+this.mobileno,
+          "emailid":this.emailid 
+          
+            }
+      }
+      else
+      {
+      
+        this.sample={
 
                 "firstname":this.Category,
                 "timestamp":this.today,
@@ -77,7 +93,8 @@ today;
                 "emailid":this.emailid 
                 
                   }
-      //Function to add data to fire store
+      }
+      
               
       if(this.Category==""  )
       {
@@ -107,7 +124,7 @@ today;
         //call the add function
       this.Fire.collection('User').add(this.sample);
 
-      console.log(this.sample);
+      //console.log(this.sample);
 
       //disable all error flags
       this.errorflag=false;
@@ -206,8 +223,8 @@ this.fireService.getsfiredata().subscribe(actionArray =>{
     }
     
   });
-  console.log(this.selected.length);
-  console.log(this.slength);
+  //console.log(this.selected.length);
+  //console.log(this.slength);
 
 
   //for added user

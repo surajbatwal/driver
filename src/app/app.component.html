@@ -46,7 +46,7 @@
   <br>
   <br>
 <div *ngFor="let value of list;let i = index;">
-  <input matInput class="inputwait" placeholder="&nbsp;{{i+1}}. &nbsp;{{value.firstname}}" disabled>
+  <input matInput class="inputwait" placeholder="&nbsp;{{i+1}}. {{value.firstname}}" disabled>
   <input matInput class="timestamp" placeholder="&nbsp;{{value.timestamp |date:'h:mm a ' }} {{value.timestamp |date }} &nbsp;" disabled>
   <br>
   <br>
